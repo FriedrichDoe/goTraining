@@ -4,6 +4,13 @@ import "fmt"
 
 var x int = 42
 
+const p string = "death & taxes"
+
+const (
+	Pi       = 3.14
+	Language = "Go"
+)
+
 func main() {
 	y := 69
 
@@ -27,6 +34,11 @@ func main() {
 
 	max := max(55)
 	fmt.Println(max)
+
+	const q = 42
+
+	fmt.Println("p - ", p)
+	fmt.Println("q - ", q)
 }
 
 func foo() {
