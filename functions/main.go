@@ -24,7 +24,7 @@ func main() {
 	})
 	fmt.Println(xs)
 
-	fmt.Println("---------------------------")
+	fmt.Println("-----------------------------")
 
 	// anonymous self executed function
 	func() {
