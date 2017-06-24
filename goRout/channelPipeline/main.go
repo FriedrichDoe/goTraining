@@ -4,12 +4,13 @@ import "fmt"
 
 func main() {
 	// set up the pipeline
-	c := gen(2, 3)
+	c := gen(2, 3, 6)
 	out := sq(c)
 
 	// consume the output
 	fmt.Println(<-out) // 4
 	fmt.Println(<-out) // 9
+	fmt.Println(<-out) // 36
 }
 
 func gen(nums ...int) <-chan int {
