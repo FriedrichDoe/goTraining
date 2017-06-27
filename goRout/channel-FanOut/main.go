@@ -6,7 +6,7 @@ import (
 )
 
 func main() {
-	in := gen(2, 3)
+	in := gen(2, 3, 8)
 
 	// Fan out
 	// distribute the sq work across two goroutines that both read from in
@@ -21,8 +21,10 @@ func main() {
 }
 
 func gen(nums ...int) chan int {
+	fmt.Printf("Type of nums: %T\n", nums)
 	out := make(chan int)
 	go func() {
+		// _: index; n: value;
 		for _, n := range nums {
 			out <- n
 		}
@@ -43,9 +45,9 @@ func sq(in chan int) chan int {
 }
 
 func merge(cs ...chan int) chan int {
+	fmt.Printf("TYPE of cs: %T\n", cs) // just FYI
 	out := make(chan int)
 	var wg sync.WaitGroup
-	fmt.Printf("TYPE: %T", cs) // just FYI
 	wg.Add(len(cs))
 
 	for _, c := range cs {
